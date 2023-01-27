@@ -4,11 +4,13 @@ import {
   Text,
   StyleSheet,
   Image,
-  useColorScheme,
+  useColorScheme
 } from 'react-native';
 
-export default function WelcomeScreen() {
+export default function WelcomeScreenCopy(route) {
   const colorScheme = useColorScheme();
+  const { itemqualquer, itemaserpassado, email, password } = route.params;
+
   return (
     <ScrollView
       style={[
@@ -25,6 +27,11 @@ export default function WelcomeScreen() {
           accessible={true}
           accessibilityLabel={'Little Lemon Logo'}
         />
+
+      <Text>itemqualquer: {JSON.stringify(itemqualquer)}</Text>
+      <Text>itemaserpassado: {JSON.stringify(itemaserpassado)}</Text>
+      <Text>email: {JSON.stringify(email)}</Text>
+      <Text>password: {JSON.stringify(password)}</Text>
 
         <Text
           style={[
@@ -45,7 +52,6 @@ export default function WelcomeScreen() {
         and classic cocktails in a lively but casual environment. We would love
         to hear your experience with us!
       </Text>
-
     </ScrollView>
   );
 }

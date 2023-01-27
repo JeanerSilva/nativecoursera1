@@ -7,8 +7,24 @@ import {
   useColorScheme,
 } from 'react-native';
 
-export default function WelcomeScreen() {
+export default function WelcomeScreen({ route }) {
   const colorScheme = useColorScheme();
+
+  const thereisparams = route.params ? true : false
+
+  const { itemqualquer } = {}
+  const { itemaserpassado } = {}
+  const { email } = {}
+  const { password } = {}
+
+  if (thereisparams) {
+    itemqualquer = route.params
+    itemaserpassado = route.params
+    email = route.params
+    password = route.params
+  }
+
+
   return (
     <ScrollView
       style={[
@@ -45,6 +61,12 @@ export default function WelcomeScreen() {
         and classic cocktails in a lively but casual environment. We would love
         to hear your experience with us!
       </Text>
+      {thereisparams &&
+        <>
+          <Text>itemqualquer: {JSON.stringify(itemqualquer)}</Text>
+          <Text>itemaserpassado: {JSON.stringify(itemaserpassado)}</Text>
+          <Text>email: {JSON.stringify(email)}</Text>
+          <Text>password: {JSON.stringify(password)}</Text></>}
 
     </ScrollView>
   );
